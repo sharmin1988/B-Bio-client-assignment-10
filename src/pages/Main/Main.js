@@ -8,12 +8,12 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
-            <div style={{backgroundImage: 'url(https://img.freepik.com/free-vector/white-background-with-blue-tech-hexagon_1017-19366.jpg?size=626&ext=jpg&ga=GA1.2.1239272833.1664376337&semt=sph)' }} className='bg-cover lg:flex'>
+            <div className='bg-cover gap-8 mt-6 lg:flex'>
+                <div className='lg:w-1/4 bg-red-100'>
+                    <RightSideNav></RightSideNav>
+                </div>
                 <div className='lg:w-3/4'>
                     <Outlet></Outlet>
-                </div>
-                <div className='lg:w-1/4'>
-                    <RightSideNav></RightSideNav>
                 </div>
             </div>
             <Footer></Footer>

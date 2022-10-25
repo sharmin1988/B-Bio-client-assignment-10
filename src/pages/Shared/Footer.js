@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer  className="flex bg-lime-50 flex-col items-center justify-between p-6 h-32 dark:bg-gray-900 sm:flex-row">
+        <footer  className="flex bg-gray-800 flex-col items-center justify-between p-6 h-32 dark:bg-gray-900 sm:flex-row">
             <a href="/" className="text-xl font-bold text-gray-600 transition-colors duration-300 dark:text-white hover:text-gray-700 dark:hover:text-gray-300">B-Bio.com</a>
 
             <p className="text-sm text-gray-600 dark:text-gray-300">© Copyright 2021. All Rights Reserved.</p>
