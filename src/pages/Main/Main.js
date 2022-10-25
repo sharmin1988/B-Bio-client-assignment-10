@@ -8,11 +8,11 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
-            <div className='bg-cover mt-6 lg:flex'>
-                <div className='lg:w-1/4 bg-red-100'>
+            <div className=' my-2 lg:flex'>
+                <div className=' lg:w-1/4'>
                     <RightSideNav></RightSideNav>
                 </div>
-                <div className='lg:w-3/4'>
+                <div  className=' lg:w-3/4'>
                     <Outlet></Outlet>
                 </div>
             </div>

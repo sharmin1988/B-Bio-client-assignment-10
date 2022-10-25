@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Register = () => {
     return (
@@ -17,26 +18,26 @@ const Register = () => {
                                     <div>
                                         <label for="name" className="block text-sm font-medium text-neutral-600">Name </label>
                                         <div className="mt-1">
-                                            <input id="name" name="name" type="text" required="" placeholder="Your Name" className="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-red-300 rounded-lg text-neutral-600 bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" />
+                                            <input id="name" name="name" type="text"  placeholder="Your Name" className="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-red-300 rounded-lg text-neutral-600 bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" />
                                         </div>
                                     </div>
                                     <div>
                                         <label for="photo" className="block text-sm font-medium text-neutral-600">Photo-URL </label>
                                         <div className="mt-1">
-                                            <input id="photo" name="photo-URL" type="url" required="" placeholder="enter url" className="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-red-300 rounded-lg text-neutral-600 bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" />
+                                            <input id="photo" name="photo-URL" type="url" placeholder="enter url" className="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-red-300 rounded-lg text-neutral-600 bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" />
                                         </div>
                                     </div>
                                     <div>
                                         <label for="email" className="block text-sm font-medium text-neutral-600"> Email address </label>
                                         <div className="mt-1">
-                                            <input id="email" name="email" type="email" autocomplete="email" required="" placeholder="Your Email" className="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-red-300 rounded-lg text-neutral-600 bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" />
+                                            <input id="email" name="email" type="email"  required placeholder="Your Email" className="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-red-300 rounded-lg text-neutral-600 bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" />
                                         </div>
                                     </div>
 
                                     <div className="space-y-1">
                                         <label for="password" className="block text-sm font-medium text-neutral-600"> Password </label>
                                         <div className="mt-1">
-                                            <input id="password" name="password" type="password" autocomplete="current-password" required="" placeholder="Your Password" className="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-red-300 rounded-lg text-neutral-600 bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" />
+                                            <input id="password" name="password" type="password"  required placeholder="Your Password" className="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-red-300 rounded-lg text-neutral-600 bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" />
                                         </div>
                                     </div>
 
@@ -47,7 +48,7 @@ const Register = () => {
                                         </div>
 
                                         <div className="text-sm">
-                                            <span  className="font-medium text-black"> Already have an account? <Link to = '/login' className="font-medium text-blue-600 hover:text-blue-500" >Please login</Link> </span>
+                                            <span className="font-medium text-black"> Already have an account? <Link to='/login' className="font-medium text-blue-600 hover:text-blue-500" >Please login</Link> </span>
                                         </div>
                                     </div>
 
@@ -63,11 +64,12 @@ const Register = () => {
                                         <span className="px-2 bg-white text-neutral-600"> Or continue with </span>
                                     </div>
                                 </div>
-                                <div>
-                                    <button type="submit" className="w-full items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
-                                        <div className="flex items-center justify-center">
-                                            <span className="ml-4"> Register with Google</span>
-                                        </div>
+                                <div className='flex justify-center gap-4'>
+                                    <button className="" >
+                                        <FaGoogle />
+                                    </button>
+                                    <button className="" >
+                                        <FaGithub />
                                     </button>
                                 </div>
                             </div>

@@ -11,7 +11,7 @@ const Header = () => {
                 <div className="flex items-center">
                     <Link to='/' className="inline-flex items-center mr-8">
                         <img className='h-10' src={logo} alt="" />
-                        <span className="ml-2 text-xl font-bold tracking-wide uppercase text-gray-800 ">
+                        <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 ">
                             B-Bio.com
                         </span>
                     </Link>
