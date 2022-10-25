@@ -4,7 +4,7 @@ const Login = () => {
     return (
         <section>
             <div class="flex min-overflow-hidden">
-                <div class="flex flex-col justify-center flex-1 px-4 pb-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+                <div class="flex flex-col justify-center flex-1 px-4 pb-12 sm:px-6 lg:flex-none lg:px-16 xl:px-20">
                     <div class="w-full max-w-xl mx-auto lg:w-96">
                         <div>
                             <h2 class="mt-6 text-3xl font-extrabold text-neutral-600">Login.</h2>

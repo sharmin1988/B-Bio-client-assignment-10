@@ -8,7 +8,7 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
-            <div className='bg-cover gap-8 mt-6 lg:flex'>
+            <div className='bg-cover mt-6 lg:flex'>
                 <div className='lg:w-1/4 bg-red-100'>
                     <RightSideNav></RightSideNav>
                 </div>
