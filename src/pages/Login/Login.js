@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
@@ -34,12 +35,12 @@ const Login = () => {
                                         </div>
 
                                         <div className="text-sm">
-                                            <a href="/" className="font-medium text-blue-600 hover:text-blue-500"> Forgot your password? </a>
+                                            <span className="font-medium text-black"> New to the website? <Link to='/register' className="font-medium text-blue-600 hover:text-blue-500" >Please register</Link> </span>
                                         </div>
                                     </div>
 
                                     <div>
-                                        <button type="submit" className="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-lime-700 rounded-xl hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Sign in</button>
+                                        <button type="submit" className="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-lime-700 rounded-xl hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Login</button>
                                     </div>
                                 </form>
                                 <div className="relative my-4">
