@@ -20,7 +20,7 @@ const CourseDetails = () => {
                     <p className="mt-4 mb-8 text-sm">{description}</p>
 
                     <div className='lg:flex items-center'>
-                        <Link className=' ' to= {`/courses/checkout/${id}`}>
+                        <Link className=' ' to={`/courses/checkout/${id}`}>
                             <button className="self-start px-6 py-2 text-lg font-medium rounded bg-lime-600 hover:bg-yellow-600 text-gray-900">Get premium access</button>
                         </Link>
                         <Link to='/courses'>

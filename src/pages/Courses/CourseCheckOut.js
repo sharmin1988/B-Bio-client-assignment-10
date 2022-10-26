@@ -1,9 +1,14 @@
 import React from 'react';
+import toast from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const CourseCheckOut = () => {
     const course = useLoaderData()
-    console.log(course)
+
+    const handelCheckOut = () => {
+        toast.success('Successfully enrolled to the course')
+    }
+
     return (
         <div>
             <section>
@@ -22,7 +27,9 @@ const CourseCheckOut = () => {
                                     </p>
                                     <span className="text-xs text-neutral-600">No credit card required</span>
                                     <div className="mt-6">
-                                        <Link to="/login" className="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-xl hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Get access</Link>
+                                    <button onClick={handelCheckOut} className="w-full items-center block px-10 py-3.5 text-base font-medium text-center bg-blue-600   border-2  text-white  shadow-md rounded-xl  hover:bg-yellow-600">
+                                            Get access                                               
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -36,10 +43,10 @@ const CourseCheckOut = () => {
                                     </p>
                                     <span className="text-xs text-neutral-600">No credit card required</span>
                                     <div className="mt-6">
-                                        <Link to="/"
-                                            className="w-full items-center block px-10 py-3.5 text-base font-medium text-center bg-lime-600  transition duration-500 ease-in-out transform border-2  text-white  shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 hover:bg-yellow-600 focus:ring-gray-500">
-                                            Buy for $ {course.price}
-                                        </Link>
+                                        <button onClick={handelCheckOut} className="w-full items-center block px-10 py-3.5 text-base font-medium text-center bg-lime-600   border-2  text-white  shadow-md rounded-xl  hover:bg-yellow-600">
+                                             Buy for $ {course.price}                                               
+                                        </button>
+
                                     </div>
                                 </div>
                             </div>
