@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
+import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/biotechnology.png'
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
@@ -8,7 +9,7 @@ const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { user, logOut } = useContext(AuthContext)
     const [theme, setTheme] = useState(false)
-console.log(user)
+    console.log(user)
 
     const handelTheme = () => {
         setTheme(!theme)
@@ -60,9 +61,12 @@ console.log(user)
                         user?.uid ?
                             <>
                                 <li>
-                                    <Link to='/login' className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-lime-600">
-                                        {user?.email}
-                                    </Link>
+                                    <div className="tooltip tooltip-bottom" data-tip= {user.displayName}>
+                                        <Link to='/login' >
+                                            <img alt="" data-tip="hello" className="w-10 h-10 tooltip border rounded-full" src={user?.photoURL} />
+                                        </Link>
+                                    </div>
+
                                 </li>
                                 <li>
                                     <Link to='/' className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-yellow-600 hover:bg-lime-600 focus:shadow-outline focus:outline-none">
