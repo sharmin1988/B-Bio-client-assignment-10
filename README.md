@@ -1,8 +1,8 @@
 # My project name : B-Bio.com
-## Live link: (https://b-bio-client.web.app/)
+## Live link: https://b-bio-client.web.app/
 ### Api resources links are....
-1) all data (https://b-bio-server-site.vercel.app/courses) <br/>
-2) For singel data (https://b-bio-server-site.vercel.app/courses/1)  <br/>
+1) all data https://b-bio-server-site.vercel.app/courses <br/>
+2) For singel data https://b-bio-server-site.vercel.app/courses/1  <br/>
 
 
 ### For my work , i use several dependency like..
