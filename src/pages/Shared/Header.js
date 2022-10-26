@@ -6,7 +6,20 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    // const {user} = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
+    const [theme, setTheme] = useState(false)
+console.log(user)
+
+    const handelTheme = () => {
+        setTheme(!theme)
+    }
+
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
 
     return (
         <div className="px-4 py-3 mx-auto bg-lime-100 sm:max-w-xl md:max-w-full lg:max-w-screen-2xl md:px-24 lg:px-8">
@@ -18,7 +31,7 @@ const Header = () => {
                             B-Bio.com
                         </span>
                     </Link>
-                    <ul className="flex items-center hidden space-x-8 lg:flex">
+                    <ul className=" items-center hidden space-x-8 lg:flex">
                         <li>
                             <Link to='/courses' className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-lime-600">
                                 Courses
@@ -35,23 +48,46 @@ const Header = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link to='/about' className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-lime-600">
-                             about
-                            </Link>
+                            <button onClick={handelTheme} className={`inline-flex items-center justify-center h-8 px-4 font-medium tracking-wide  transition duration-200 rounded shadow-md bg-gray-100 hover:bg-yellow-600 focus:shadow-outline focus:outline-none ${theme ? 'bg-white text-black' : 'bg-black text-white'}`}>
+                                Theme
+                            </button>
                         </li>
                     </ul>
                 </div>
-                <ul className="flex items-center hidden space-x-8 lg:flex">
-                    <li>
-                        <Link to='/login' className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-lime-600">
-                            Login
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to='/register' className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-lime-600 hover:bg-yellow-600 focus:shadow-outline focus:outline-none">
-                            Register
-                        </Link>
-                    </li>
+                <ul className="items-center hidden space-x-8 lg:flex">
+
+                    {
+                        user?.uid ?
+                            <>
+                                <li>
+                                    <Link to='/login' className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-lime-600">
+                                        {user?.email}
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to='/' className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-yellow-600 hover:bg-lime-600 focus:shadow-outline focus:outline-none">
+                                        <button onClick={handleLogOut}>
+                                            Logout
+                                        </button>
+                                    </Link>
+                                </li>
+                            </>
+
+                            : <>
+                                <li>
+                                    <Link to='/login' className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-lime-600">
+                                        Login
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to='/register' className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-lime-600 hover:bg-yellow-600 focus:shadow-outline focus:outline-none">
+                                        Register
+                                    </Link>
+                                </li>
+                            </>
+                    }
+
+
                 </ul>
 
                 {/* ------- For mobile display--------- */}

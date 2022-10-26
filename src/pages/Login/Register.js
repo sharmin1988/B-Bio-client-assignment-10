@@ -3,10 +3,13 @@ import { Link } from 'react-router-dom';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import toast from 'react-hot-toast';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Register = () => {
-    const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext)
+    const { createUser, googleSinIn, updateUserProfile, verifyEmail } = useContext(AuthContext)
     const [error, setError] = useState('')
+    const provider = new GoogleAuthProvider();
 
     const handelOnSubmit = (event) => {
         event.preventDefault();
@@ -24,13 +27,26 @@ const Register = () => {
                 form.reset();
                 handelUpdateUserProfile(name, photoURL)
                 handelVerifyEmail()
-                // toast.success('Verification Email send to your inbox! PleaseCheck')
+                toast.success('Verification Email send to your inbox! PleaseCheck')
             })
             .catch(e => {
                 console.error(e)
                 setError(e.message)
             });
     }
+
+    const handleGoogleSignIn = () => {
+        googleSinIn(provider)
+
+            .then((result) => {
+                const user = result.user;
+                console.log(user)
+
+            }).catch((error) => {
+                console.error(error)
+            });
+    }
+
     const handelUpdateUserProfile = (name, photoURL) => {
         const profile = {
             displayName: name,
@@ -116,7 +132,7 @@ const Register = () => {
                                     </div>
                                 </div>
                                 <div className='flex justify-center gap-4'>
-                                    <button className="" >
+                                    <button onClick={handleGoogleSignIn} className="" >
                                         <FaGoogle />
                                     </button>
                                     <button className="" >
