@@ -6,7 +6,6 @@ import RightSideNav from './RightSideNav';
 const Courses = () => {
 
     const courses = useLoaderData()
-    // console.log(courses)
 
     return (
         <div className='lg:flex'>

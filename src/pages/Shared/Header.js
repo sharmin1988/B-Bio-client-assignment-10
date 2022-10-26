@@ -62,7 +62,7 @@ const Header = () => {
                                 <li>
                                     <div className="tooltip tooltip-bottom" data-tip= {user.displayName}>
                                         <Link to='/login' >
-                                            <img alt="" data-tip="hello" className="w-10 h-10 tooltip border rounded-full" src={user?.photoURL} />
+                                            <img alt=""  className="w-10 h-10 tooltip border bg-yellow-700 rounded-full" src= {user?.photoURL} />
                                         </Link>
                                     </div>
 

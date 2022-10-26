@@ -16,6 +16,11 @@ const AuthProvider = ({children}) => {
         return signInWithPopup(auth, provider)
     }
 
+    const gitHubSinIn = (gitHubProvider) => {
+        setLoading(true)
+        return signInWithPopup(auth, gitHubProvider)
+    }
+
 
     const createUser = (email, password) => {
         setLoading(true)
@@ -44,10 +49,8 @@ const AuthProvider = ({children}) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             console.log('user in state', currentUser)
-            // setUser(currentUser)
-            if(currentUser === null || currentUser.emailVerified){
-                setUser(currentUser)
-            }
+            setUser(currentUser)
+            
             setLoading(false)
         });
         return () => {
@@ -60,6 +63,7 @@ const AuthProvider = ({children}) => {
         loading,
         setLoading, 
         googleSinIn,
+        gitHubSinIn,
         updateUserProfile, 
         verifyEmail,
         logOut, 

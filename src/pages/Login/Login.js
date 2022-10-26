@@ -23,10 +23,8 @@ const Login = () => {
                 console.log(user);
                 setError('')
                 form.reset();
-                if (user.emailVerified) {
-                    navigate(from, { replace: true })
-                }
-                else (toast.error('Please verify your email first!!!'))
+                navigate(from, { replace: true })
+                
             })
             .catch(error => {
                 console.error(error)
@@ -38,7 +36,7 @@ const Login = () => {
     return (
         <section>
             <div className="flex min-overflow-hidden">
-                <div className="flex flex-col justify-center flex-1 px-4 pb-12 sm:px-6 lg:flex-none lg:px-16 xl:px-20">
+                <div className="flex flex-col justify-center flex-1 px-4 py-12 sm:px-6 lg:flex-none lg:px-16 xl:px-20">
                     <div className="w-full max-w-xl mx-auto lg:w-96">
                         <div>
                             <h2 className="mt-6 text-3xl font-extrabold text-neutral-600">Login.</h2>
@@ -81,17 +79,9 @@ const Login = () => {
                                     <div className="absolute inset-0 flex items-center">
                                         <div className="w-full border-t border-gray-300"></div>
                                     </div>
-                                    <div className="relative flex justify-center text-sm">
-                                        <span className="px-2 bg-white text-neutral-600"> Or continue with </span>
-                                    </div>
+                                    
                                 </div>
-                                <div>
-                                    <button type="submit" className="w-full items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
-                                        <div className="flex items-center justify-center">
-                                            <span className="ml-4"> Log in with Google</span>
-                                        </div>
-                                    </button>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>

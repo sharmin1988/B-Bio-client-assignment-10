@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Register = () => {
-    const { createUser, googleSinIn, updateUserProfile, verifyEmail } = useContext(AuthContext)
-    const [error, setError] = useState('')
+    const { createUser, googleSinIn, gitHubSinIn, updateUserProfile } = useContext(AuthContext)
     const provider = new GoogleAuthProvider();
+    const gitHubProvider = new GithubAuthProvider();
+    const navigate = useNavigate()
+    const [error, setError] = useState('')
 
     const handelOnSubmit = (event) => {
         event.preventDefault();
@@ -26,8 +28,8 @@ const Register = () => {
                 setError('')
                 form.reset();
                 handelUpdateUserProfile(name, photoURL)
-                handelVerifyEmail()
-                toast.success('Verification Email send to your inbox! PleaseCheck')
+                navigate('/')
+                
             })
             .catch(e => {
                 console.error(e)
@@ -41,6 +43,19 @@ const Register = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user)
+                navigate('/')
+
+            }).catch((error) => {
+                console.error(error)
+            });
+    }
+    const handleGitHubSignIn = () => {
+        gitHubSinIn(gitHubProvider)
+
+            .then((result) => {
+                const user = result.user;
+                console.log(user)
+                navigate('/')
 
             }).catch((error) => {
                 console.error(error)
@@ -57,11 +72,7 @@ const Register = () => {
             .catch(error => { })
     }
 
-    const handelVerifyEmail = () => {
-        verifyEmail()
-            .then(() => { })
-            .catch(error => console.error(error))
-    }
+   
 
 
 
@@ -103,17 +114,10 @@ const Register = () => {
                                             <input id="password" name="password" type="password" required placeholder="Your Password" className="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-red-300 rounded-lg text-neutral-600 bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" />
                                         </div>
                                     </div>
-
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex items-center">
-                                            <input id="remember-me" name="remember-me" type="checkbox" placeholder="Your password" className="w-4 h-4 text-blue-600 border-gray-200 rounded focus:ring-blue-500" />
-                                            <label for="remember-me" className="block ml-2 text-sm text-neutral-600"> Agreed term and conditions </label>
-                                        </div>
-
-                                        <div className="text-sm">
-                                            <span className="font-medium text-black"> Already have an account? <Link to='/login' className="font-medium text-blue-600 hover:text-blue-500" >Please login</Link> </span>
-                                        </div>
+                                    <div className="text-sm">
+                                        <span className="font-medium text-black"> Already have an account? <Link to='/login' className="font-medium text-blue-600 hover:text-blue-500" >Please login</Link> </span>
                                     </div>
+
 
                                     <div>
                                         <button type="submit" className="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-lime-700 rounded-xl hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Register</button>
@@ -132,10 +136,10 @@ const Register = () => {
                                     </div>
                                 </div>
                                 <div className='flex justify-center gap-4'>
-                                    <button onClick={handleGoogleSignIn} className="" >
+                                    <button onClick={handleGoogleSignIn} className=" text-2xl" >
                                         <FaGoogle />
                                     </button>
-                                    <button className="" >
+                                    <button onClick={handleGitHubSignIn} className="text-2xl" >
                                         <FaGithub />
                                     </button>
                                 </div>
