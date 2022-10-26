@@ -13,7 +13,7 @@ const CourseCard = ({ course }) => {
                         <h2 className="text-xl font-semibold tracking-wide">{title}</h2>
                         <p className="text-gray-900 mb-0">{goal}</p>
                     </div>
-                    <Link to = {`/course/${id}`}>
+                    <Link to = {`/courses/${id}`}>
                         <button type="button"
                             className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-lime-600 hover:bg-yellow-600 text-white mt-2">
                             Read more
