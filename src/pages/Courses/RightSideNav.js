@@ -10,7 +10,7 @@ const RightSideNav = () => {
     }, [])
     return (
         <div className='py-2 px-6 md:py-4 md:px-10 xl:max-w-3xl'>
-            <h4 className='text-xl text-center font-bold mb-3'>Our Courses {courses.length}</h4>
+            <h4 className='text-xl text-center font-bold mb-3'>Our Courses</h4>
 
             <div>
             {

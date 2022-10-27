@@ -12,11 +12,11 @@
 * [tailwind](https://tailwindcss.com/)<br/>
 * [firebase](https://firebase.google.com/)<br/>
 * [react-router](https://reactrouter.com/en/main)<br/>
-### 4) For design , toast, icon, use <br/>
+### 4) For design , toast, icon, install packages like... <br/>
  [daisyUI](https://daisyui.com/), [mambaUI](https://www.mambaui.com/), [kitwind](https://kitwind.io/), [react-icon](https://react-icons.github.io/react-icons/),[react-hot-toast](https://react-hot-toast.com/),[react-to-pdf](https://www.npmjs.com/package/react-to-pdf), [Lottiefiles](https://lottiefiles.com/). <br/>
 ### 5) For user Authentication, use.. 
 * google, 
 * gitHub, and 
-* email-password
+* email-password verification.
 <br/>
 <br/>
