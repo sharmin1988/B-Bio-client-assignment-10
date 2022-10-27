@@ -8,7 +8,7 @@ const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { user, logOut } = useContext(AuthContext)
     const [theme, setTheme] = useState(false)
-    console.log(user)
+    // console.log(user)
 
     const handelTheme = () => {
         setTheme(!theme)

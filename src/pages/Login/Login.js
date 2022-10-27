@@ -75,16 +75,16 @@ const Login = () => {
                             <div className="mt-6">
                                 <form onSubmit={handleSubmit} action="#" method="POST" className="space-y-6">
                                     <div>
-                                        <label for="email" className="block text-sm font-medium text-neutral-600"> Email address </label>
+                                        <label className="block text-sm font-medium text-neutral-600"> Email address </label>
                                         <div className="mt-1">
-                                            <input id="email" name="email" type="email" required="" placeholder="Your Email" className="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg text-neutral-600 bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" />
+                                            <input  name="email" type="email" required="" placeholder="Your Email" className="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg text-neutral-600 bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" />
                                         </div>
                                     </div>
 
                                     <div className="space-y-1">
-                                        <label for="password" className="block text-sm font-medium text-neutral-600"> Password </label>
+                                        <label  className="block text-sm font-medium text-neutral-600"> Password </label>
                                         <div className="mt-1">
-                                            <input id="password" name="password" type="password" required="" placeholder="Your Password" className="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg text-neutral-600 bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" />
+                                            <input  name="password" type="password" required="" placeholder="Your Password" className="block w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg text-neutral-600 bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" />
                                         </div>
                                     </div>
 
