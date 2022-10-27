@@ -60,19 +60,19 @@ const Header = () => {
                         user?.uid ?
                             <>
                                 <li>
-                                    <div className="tooltip tooltip-bottom" data-tip= {user.displayName}>
+                                    <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
                                         <Link to='/login' >
-                                            <img alt=""  className="w-10 h-10 tooltip border bg-yellow-700 rounded-full" src= {user?.photoURL} />
+                                            <img alt="" className="w-10 h-10 tooltip border bg-yellow-700 rounded-full" src={user?.photoURL} />
                                         </Link>
                                     </div>
 
                                 </li>
                                 <li>
-                                    <Link to='/' className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-yellow-600 hover:bg-lime-600 focus:shadow-outline focus:outline-none">
-                                        <button onClick={handleLogOut}>
+                                    <button onClick={handleLogOut}>
+                                        <Link to='/' className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-yellow-600 hover:bg-lime-600 focus:shadow-outline focus:outline-none">
                                             Logout
-                                        </button>
-                                    </Link>
+                                        </Link>
+                                    </button>
                                 </li>
                             </>
 

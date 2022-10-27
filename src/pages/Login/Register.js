@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaGoogle, FaGithub } from "react-icons/fa";
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
-import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Register = () => {
-    const { createUser, googleSinIn, gitHubSinIn, updateUserProfile } = useContext(AuthContext)
-    const provider = new GoogleAuthProvider();
-    const gitHubProvider = new GithubAuthProvider();
+    const { createUser, updateUserProfile } = useContext(AuthContext)
     const navigate = useNavigate()
     const [error, setError] = useState('')
 
@@ -28,7 +24,7 @@ const Register = () => {
                 form.reset();
                 handelUpdateUserProfile(name, photoURL)
                 navigate('/')
-                
+
             })
             .catch(e => {
                 console.error(e)
@@ -36,30 +32,6 @@ const Register = () => {
             });
     }
 
-    const handleGoogleSignIn = () => {
-        googleSinIn(provider)
-
-            .then((result) => {
-                const user = result.user;
-                console.log(user)
-                navigate('/')
-
-            }).catch((error) => {
-                console.error(error)
-            });
-    }
-    const handleGitHubSignIn = () => {
-        gitHubSinIn(gitHubProvider)
-
-            .then((result) => {
-                const user = result.user;
-                console.log(user)
-                navigate('/')
-
-            }).catch((error) => {
-                console.error(error)
-            });
-    }
 
     const handelUpdateUserProfile = (name, photoURL) => {
         const profile = {
@@ -70,10 +42,6 @@ const Register = () => {
             .then(() => { })
             .catch(error => { })
     }
-
-   
-
-
 
 
     return (
@@ -126,22 +94,7 @@ const Register = () => {
                                         {error}
                                     </p>
                                 </form>
-                                <div className="relative my-4">
-                                    <div className="absolute inset-0 flex items-center">
-                                        <div className="w-full border-t border-gray-300"></div>
-                                    </div>
-                                    <div className="relative flex justify-center text-sm">
-                                        <span className="px-2 bg-white text-neutral-600"> Or continue with </span>
-                                    </div>
-                                </div>
-                                <div className='flex justify-center gap-4'>
-                                    <button onClick={handleGoogleSignIn} className=" text-2xl" >
-                                        <FaGoogle />
-                                    </button>
-                                    <button onClick={handleGitHubSignIn} className="text-2xl" >
-                                        <FaGithub />
-                                    </button>
-                                </div>
+
                             </div>
                         </div>
                     </div>

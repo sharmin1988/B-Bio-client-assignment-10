@@ -1,4 +1,6 @@
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
@@ -6,7 +8,9 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 const Login = () => {
 
     const [error, setError] = useState('')
-    const { signIn, setLoading } = useContext(AuthContext);
+    const { signIn, setLoading, googleSinIn, gitHubSinIn, } = useContext(AuthContext);
+    const provider = new GoogleAuthProvider();
+    const gitHubProvider = new GithubAuthProvider();
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from.pathname || '/'
@@ -24,13 +28,38 @@ const Login = () => {
                 setError('')
                 form.reset();
                 navigate(from, { replace: true })
-                
+
             })
             .catch(error => {
                 console.error(error)
                 setError(error.message)
             })
             .finally(setLoading(false))
+    }
+
+    const handleGoogleSignIn = () => {
+        googleSinIn(provider)
+
+            .then((result) => {
+                const user = result.user;
+                console.log(user)
+                navigate(from, { replace: true })
+
+            }).catch((error) => {
+                console.error(error)
+            });
+    }
+    const handleGitHubSignIn = () => {
+        gitHubSinIn(gitHubProvider)
+
+            .then((result) => {
+                const user = result.user;
+                console.log(user)
+                navigate(from, { replace: true })
+
+            }).catch((error) => {
+                console.error(error)
+            });
     }
 
     return (
@@ -79,9 +108,19 @@ const Login = () => {
                                     <div className="absolute inset-0 flex items-center">
                                         <div className="w-full border-t border-gray-300"></div>
                                     </div>
-                                    
+                                    <div className="relative flex justify-center text-sm">
+                                        <span className="px-2 bg-white text-neutral-600"> Or continue with </span>
+                                    </div>
                                 </div>
-                                
+                                <div className='flex justify-center gap-4'>
+                                    <button onClick={handleGoogleSignIn} className=" text-2xl" >
+                                        <FaGoogle />
+                                    </button>
+                                    <button onClick={handleGitHubSignIn} className="text-2xl" >
+                                        <FaGithub />
+                                    </button>
+                                </div>
+
                             </div>
                         </div>
                     </div>
